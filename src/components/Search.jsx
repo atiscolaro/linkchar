@@ -2,11 +2,12 @@ import { createContext, useContext, useState } from "react";
 import search from '../assets/icons/search-icon.svg'
 import { getMovies } from "../service/api";
 import { MoviesDataContext } from "../context/MoviesContextProvider";
+import { useNavigate } from "react-router-dom";
 
 // export const MoviesContext = createContext();
 
 const Search = () => {
-
+  const navigate = useNavigate();
   const {movies, setMovies} = useContext(MoviesDataContext);
 
   const [inputValue, setInputValue] = useState('');
@@ -22,6 +23,7 @@ const Search = () => {
       const fetchMovies = async () => {
         const moviesData = await getMovies(inputValue);
         setMovies(moviesData)
+        navigate('/search');
       }
       fetchMovies();
       
@@ -30,6 +32,7 @@ const Search = () => {
     } finally {
       setInputValue('');
     }
+
   }
 
   return (
