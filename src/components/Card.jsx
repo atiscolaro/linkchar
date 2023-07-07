@@ -66,7 +66,7 @@ const Card = ({ title, description, id, imagePath, imagePath2 }) => {
                 <h5 className=" mb-2 font-bold text-white transition-opacity">
                   {title}
                 </h5>
-                <h6 className='text-white'>{country}</h6>
+                <h6 className='text-white'>Country: {country}</h6>
                 <p className='text-white'>
                   {description}
                 </p>

@@ -8,7 +8,7 @@ import Search from './Search';
 const Navbar = () => {
 
   return (
-      <nav className="flex bg-[#17171B] w-full h-[8rem]  top-0 left-0 shadow-md justify-between px-12 font-bold font-['Quicksand'] text-xs border-b-solid border-b  border-b-gray-700">
+      <nav className="flex bg-[#17171B] w-full h-[5.5rem]  top-0 left-0 shadow-md justify-between px-12 font-bold font-['Quicksand'] text-xs border-b-solid border-b  border-b-gray-700">
 
         <div className=' flex items-center'>
           <img src={logo} alt="" id='nav_logo' className=' min-w-[76px]' />

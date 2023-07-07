@@ -1,3 +1,4 @@
+import Home from "./components/Home"
 import MoviesGrid from "./components/MoviesGrid"
 import Navbar from "./components/Navbar"
 import MoviesContextProvider from "./context/MoviesContextProvider"
@@ -9,7 +10,8 @@ function App() {
 
       <MoviesContextProvider>
         <Navbar />
-        <MoviesGrid />
+        <Home />
+        {/* <MoviesGrid /> */}
       </MoviesContextProvider>
 
     </>
