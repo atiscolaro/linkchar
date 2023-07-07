@@ -1,13 +1,15 @@
-import { createContext, useState } from "react";
+import { createContext, useContext, useState } from "react";
 import search from '../assets/icons/search-icon.svg'
 import { getMovies } from "../service/api";
+import { MoviesDataContext } from "../context/MoviesContextProvider";
 
-export const MoviesContext = createContext();
+// export const MoviesContext = createContext();
 
-const Search = ({children}) => {
+const Search = () => {
+
+  const {movies, setMovies} = useContext(MoviesDataContext);
 
   const [inputValue, setInputValue] = useState('');
-  const [movies, setMovies] = useState([])
 
   const onInputChange = ({ target }) => {
     setInputValue(target.value);
@@ -18,16 +20,14 @@ const Search = ({children}) => {
 
     try {
       const fetchMovies = async () => {
-
         const moviesData = await getMovies(inputValue);
         setMovies(moviesData)
-
       }
       fetchMovies();
+      
     } catch (error) {
       console(error)
     } finally {
-
       setInputValue('');
     }
   }
@@ -47,9 +47,6 @@ const Search = ({children}) => {
         />
         <img src={search} alt="" />
       </form>
-      <MoviesContext.Provider value={movies} >
-        {children}
-      </MoviesContext.Provider>
     </>
   )
 }

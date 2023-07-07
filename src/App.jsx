@@ -1,29 +1,16 @@
-// import Card from "./components/Card"
-// import { useContext } from "react"
 import MoviesGrid from "./components/MoviesGrid"
 import Navbar from "./components/Navbar"
-import Search from "./components/Search"
-
+import MoviesContextProvider from "./context/MoviesContextProvider"
 
 function App() {
-
 
   return (
     <>
 
-
-      <Search>
+      <MoviesContextProvider>
         <Navbar />
         <MoviesGrid />
-      </Search>
-
-
-
-
-
-
-
-
+      </MoviesContextProvider>
 
     </>
   )

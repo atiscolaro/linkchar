@@ -3,8 +3,7 @@ import play from '../assets/icons/PlayIconFull.svg'
 import star from '../assets/icons/star-icon.svg'
 import { getImageOriginal, getMovieCountry, getMovieGenres } from '../service/api';
 
-
-const Card = ({title, description, id , imagePath, imagePath2}) => {
+const Card = ({ title, description, id, imagePath, imagePath2 }) => {
 
   const [isHovered, setIsHovered] = useState(false);
   const [image, setImage] = useState()
@@ -12,14 +11,14 @@ const Card = ({title, description, id , imagePath, imagePath2}) => {
   const [country, setCountry] = useState('')
   const [genre, setGenre] = useState('')
 
-  const getImage = async() => {
+  const getImage = async () => {
     const imgData = await getImageOriginal(imagePath)
-      setImage(imgData)
-    }
+    setImage(imgData)
+  }
 
   const getImageAux = async () => {
     const imgDataAux = await getImageOriginal(imagePath2)
-    if(!image){
+    if (!image) {
       setImage(imgDataAux)
     }
   }
@@ -41,7 +40,7 @@ const Card = ({title, description, id , imagePath, imagePath2}) => {
     getCountry()
     getImageAux()
   }, [])
-  
+
   const handleMouseOver = () => {
     setIsHovered(true);
   };
@@ -72,7 +71,6 @@ const Card = ({title, description, id , imagePath, imagePath2}) => {
                   {description}
                 </p>
               </div>
-              {/* <div className='hover:bg-slate-700 hover:bg-opacity-40 absolute top-0 left-0 right-0 bottom-0 rounded-[2rem]'></div> */}
             </>
           ) : (
             <>
@@ -98,9 +96,6 @@ const Card = ({title, description, id , imagePath, imagePath2}) => {
         </div>
       </div>
     </>
-
-
-
   )
 }
 

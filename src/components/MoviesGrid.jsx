@@ -1,25 +1,22 @@
 import { useContext, useEffect, useState } from "react";
 import Card from "./Card"
-import { MoviesContext } from "./Search";
+import { MoviesDataContext } from "../context/MoviesContextProvider";
 
 const MoviesGrid = () => {
 
-   const moviesFromContext = useContext(MoviesContext)
-
-   const [movies, setMovies] = useState([])
-
+   const {movies} = useContext(MoviesDataContext)
+   const [moviesArray, setMoviesArray] = useState([])
 
    useEffect(() => {
-      setMovies(moviesFromContext);
-   }, [moviesFromContext]);
+      setMoviesArray(movies);
+   }, [movies]);
 
-   console.log('ati', movies);
    return (
       <>
-         {movies && (
+         {moviesArray && (
             <div className=" h-[calc(100vh-4rem)] overflow-auto mx-4 ">
                <div className="grid grid-cols-auto  grid-cols-1  md:grid-cols-2 lg:grid-cols-4 gap-y-10 gap-x-10 justify-items-center my-20 ">
-                  {movies.map((movie) => (
+                  {moviesArray.map((movie) => (
                      <Card
                         key={movie.id}
                         id={movie.id}
@@ -32,27 +29,6 @@ const MoviesGrid = () => {
                </div>
             </div>
          )}
-
-         {/* <Card /> */}
-
-
-
-         {/* NO BORRAR
-         <div className=" h-[calc(100vh-4rem)] overflow-auto mx-4 ">
-            <div className="grid grid-cols-auto  grid-cols-1  md:grid-cols-2 lg:grid-cols-4 gap-y-10 gap-x-10 justify-items-center my-20 ">
-               {movies?.map((movie) => {
-                  return (
-                     <Card
-                        key={movie.results.id}
-                        movieTitle={movie.results.original_title}
-                        description={movie.results.overview}
-                        imagePath={movie.results.poster_path}
-                     />
-                  )
-               })}
-            </div>
-         </div> */}
-
       </>
    )
 }
