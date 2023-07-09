@@ -31,11 +31,10 @@ const CardNewTrailer = ({ id, title, imagePath, imagePath2 }) => {
     getImageAux()
   }, [])
 
-
   return (
     <>
       <div
-        className={`flex items-end bg-slate-700 container w-[24rem] h-[13rem] rounded-[2rem] relative`}
+        className={`flex items-end bg-slate-700 container mx-auto w-[80%] h-[11rem] rounded-[2rem] relative`}
         style={{ backgroundImage: `url(${image})`, backgroundSize: 'cover', backgroundClip: 'content-box', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}
       >
         <div className='relative bg-white bg-opacity-10 backdrop-filter backdrop-blur-[0.2rem] h-[35%] w-full rounded-b-[2rem] rounded-t-[1rem] p-4 '>
@@ -56,10 +55,6 @@ const CardNewTrailer = ({ id, title, imagePath, imagePath2 }) => {
               <img src={minute} alt="" />
             </div>
           </div>
-
-
-
-
         </div>
       </div>
     </>

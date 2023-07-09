@@ -7,7 +7,6 @@ const Card = ({ title, description, id, imagePath, imagePath2 }) => {
 
   const [isHovered, setIsHovered] = useState(false);
   const [image, setImage] = useState()
-
   const [country, setCountry] = useState('')
   const [genre, setGenre] = useState('')
 
@@ -56,7 +55,7 @@ const Card = ({ title, description, id, imagePath, imagePath2 }) => {
         style={{ backgroundImage: `url(${image})`, backgroundSize: 'cover', backgroundClip: 'content-box', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}
       >
         <div
-          className=' relative bg-white bg-opacity-10 backdrop-filter backdrop-blur-[0.2rem] h-[35%] hover:h-full w-full rounded-b-[2rem] rounded-t-[1rem] p-4 '
+          className=' relative bg-white bg-opacity-10 backdrop-filter backdrop-blur-[0.2rem] h-[35%] hover:h-full hover:bg-black hover:bg-opacity-80 w-full rounded-b-[2rem] rounded-t-[1rem] p-4 '
           onMouseOver={handleMouseOver}
           onMouseOut={handleMouseOut}
         >

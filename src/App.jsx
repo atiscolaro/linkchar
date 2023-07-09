@@ -10,7 +10,6 @@ function App() {
   return (
     <>
       <BrowserRouter>
-
         <MoviesContextProvider>
           <Navbar />
           <Routes>
@@ -18,9 +17,7 @@ function App() {
             <Route path='search' element={<MoviesGrid />} />
           </Routes>
         </MoviesContextProvider>
-
       </BrowserRouter>
-
     </>
   )
 }

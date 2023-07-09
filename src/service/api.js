@@ -1,6 +1,5 @@
 import axios from 'axios'
 
-
 const API_URL = 'https://api.themoviedb.org/3'
 const API_KEY = '33ab8887535c1b841abbb3411fd85c63'
 const IMAGE_PATH = 'https://image.tmdb.org/t/p/'
@@ -50,9 +49,27 @@ const getNowPlayingMovies = async () => {
         page: '1',
       },
     });
-    const normalizedData = response.data.results;
+    const nowPlaying = response.data.results;
 
-    return normalizedData;
+    return nowPlaying;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+};
+
+const getTopRated = async () => {
+  try {
+    const response = await axios.get(`${API_URL}/movie/top_rated`, {
+      params:{
+        api_key: API_KEY,
+        language: 'en-US',
+        page: '1',
+      },
+    });
+    const topRated = response.data.results;
+
+    return topRated;
   } catch (error) {
     console.error(error);
     throw error;
@@ -105,6 +122,7 @@ export {
   getMovies,
   getPopularMovies,
   getNowPlayingMovies,
+  getTopRated,
   getMovieGenres,
   getMovieCountry,
   getSmallImage,

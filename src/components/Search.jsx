@@ -4,12 +4,9 @@ import { getMovies } from "../service/api";
 import { MoviesDataContext } from "../context/MoviesContextProvider";
 import { useNavigate } from "react-router-dom";
 
-// export const MoviesContext = createContext();
-
 const Search = () => {
   const navigate = useNavigate();
   const {movies, setMovies} = useContext(MoviesDataContext);
-
   const [inputValue, setInputValue] = useState('');
 
   const onInputChange = ({ target }) => {
@@ -32,7 +29,6 @@ const Search = () => {
     } finally {
       setInputValue('');
     }
-
   }
 
   return (
@@ -43,7 +39,7 @@ const Search = () => {
       >
         <input
           type="text"
-          placeholder="Buscar"
+          placeholder="Search"
           value={inputValue}
           onChange={onInputChange}
           className="text-black rounded-lg p-2"
