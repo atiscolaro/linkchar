@@ -18,7 +18,7 @@ const Banner = ({ id, title, imagePath, imagePath2 }) => {
 
   return (
     <div
-      className={`flex items-end bg-slate-700 container w-full h-[13rem] rounded-[2rem] relative`}
+      className={`flex items-end bg-slate-700 w-full h-[13rem] rounded-[2rem]`}
       style={{ backgroundImage: `url(${image})`, backgroundSize: 'cover', backgroundClip: 'content-box', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}
     >
       
