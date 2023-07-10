@@ -6,7 +6,7 @@ import mont from '../assets/icons/montanaN.svg'
 import Search from './Search';
 import { Link } from 'react-router-dom';
 
-const Navbar = () => {
+const Navbar = ({ onSearch }) => {
 
   return (
     <nav className="flex  bg-[#17171B] w-full h-[6rem]  top-0 left-0 shadow-md gap-10 justify-between  px-14 font-bold font-['Quicksand'] text-lg border-b-solid border-b  border-b-gray-700">
@@ -27,7 +27,7 @@ const Navbar = () => {
       </div>
 
       <div className='flex items-center gap-12'>
-        <Search />
+        <Search onSearch={onSearch}/>
         <img src={group13} alt="" className='hidden lg:block scale-125' />
         <img src={group14} alt="" className='hidden lg:block scale-125' />
         <img src={frame} alt="" className='hidden lg:block scale-125' />

@@ -4,7 +4,7 @@ import { getMovies } from "../service/api";
 import { MoviesDataContext } from "../context/MoviesContextProvider";
 import { useNavigate } from "react-router-dom";
 
-const Search = () => {
+const Search = ({ onSearch }) => {
   const navigate = useNavigate();
   const {movies, setMovies} = useContext(MoviesDataContext);
   const [inputValue, setInputValue] = useState('');
@@ -15,10 +15,10 @@ const Search = () => {
 
   const onSubmit = (event) => {
     event.preventDefault();
-
+    onSearch(inputValue);
     try {
       const fetchMovies = async () => {
-        const moviesData = await getMovies(inputValue);
+        const moviesData = await getMovies(inputValue, 1);
         setMovies(moviesData)
         navigate('/search');
       }

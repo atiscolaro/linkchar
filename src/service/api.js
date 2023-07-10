@@ -4,16 +4,17 @@ const API_URL = 'https://api.themoviedb.org/3'
 const API_KEY = '33ab8887535c1b841abbb3411fd85c63'
 const IMAGE_PATH = 'https://image.tmdb.org/t/p/'
 
-const getMovies = async (searchKey) => {
+const getMovies = async (searchKey, page) => {
   try {
     const response = await axios.get(`${API_URL}/search/movie`, {
       params: {
         api_key: API_KEY,
         query: searchKey,
-        language: 'en-US'
+        language: 'en-US',
+        page: page
       },
     });
-    const movies = response.data.results;
+    const movies = response.data;
 
     return movies;
   } catch (error) {
