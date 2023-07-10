@@ -3,7 +3,7 @@ import play from '../assets/icons/PlayIconFull.svg'
 import star from '../assets/icons/star-icon.svg'
 import { getImageOriginal, getMovieCountry, getMovieGenres } from '../service/api';
 
-const Card = ({ title, description, id, imagePath, imagePath2 }) => {
+const Card = ({ title, description, id, imagePath, imagePath2, onOpenModal }) => {
 
   const [isHovered, setIsHovered] = useState(false);
   const [image, setImage] = useState()
@@ -48,11 +48,16 @@ const Card = ({ title, description, id, imagePath, imagePath2 }) => {
     setIsHovered(false);
   };
 
+  const handleOpenModal = () => {
+    onOpenModal(id); 
+  };
+
   return (
     <>
       <div
         className={`flex items-end bg-slate-700 container min-w-[20rem] min-h-[11rem] max-w-[30rem] max-h-[16rem] md:max-w-[25rem] md:min-h-[12rem] lg:min-w-[14rem] lg:max-h-[8rem] lg:max-w-[27rem] lg:min-h-[14rem] rounded-[2rem] relative`}
         style={{ backgroundImage: `url(${image})`, backgroundSize: 'cover', backgroundClip: 'content-box', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}
+        onClick={handleOpenModal}
       >
         <div
           className=' relative bg-white bg-opacity-10 backdrop-filter backdrop-blur-[0.2rem] sm:h-[45%] lg:h-[40%] md:h-[40%] overflow-hidden hover:h-full hover:bg-black hover:bg-opacity-80 w-full rounded-b-[2rem] rounded-t-[1rem] p-4 '

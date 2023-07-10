@@ -51,6 +51,23 @@ body {
   background-color: #46434383;
 }
 
+.modal {
+  position: absolute;
+  background-color: rgb(0 0 0 / 0.92);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.modal .cerrar-modal img {
+  width: 100%;
+}
+
+body .modal {
+  overflow: hidden;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
