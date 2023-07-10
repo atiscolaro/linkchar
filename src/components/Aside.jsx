@@ -93,27 +93,6 @@ const Aside = ({ open, setOpen }) => {
             <div className='text-lg my-2'>
               Favourite genres
             </div>
-            <div className='flex gap-3'>
-              <img src={plus} alt="" className='scale-[1.25]' />
-              <p className='text-sm text-gray-400'>Add your favourite genres (max 5)</p>
-            </div>
-            <div className="flex  mt-4">
-              {genresLabel.data && (
-                <ul className="flex gap-3 p-2 whitespace-nowrap overflow-x-auto ">
-                  {genresLabel.data.genres.map((genre) => {
-                    return (
-                      <div
-                        className="bg-orange-400 p-2 rounded-md cursor-pointer"
-                        onClick={() => handleGenreClick(genre)}
-                        key={genre.id}
-                      >
-                        <p>{genre.name}</p>
-                      </div>
-                    );
-                  })}
-                </ul>
-              )}
-            </div>
             <div className='mt-8'>
               {selectedGenres.length > 0 && (
                 <div className="mt-2 flex flex-col">
@@ -124,7 +103,7 @@ const Aside = ({ open, setOpen }) => {
                   <div className='flex gap-3 flex-wrap'>
                     {selectedGenres.map((genre, index) => (
                       <div
-                        className={`p-2 rounded-md cursor-pointer ${colors[index]}`}
+                        className={`px-4 py-2 mb-5 rounded-3xl cursor-pointer ${colors[index]}`}
                         onClick={() => handleRemoveGenre(genre)}
                         key={genre.id}
                       >
@@ -136,10 +115,30 @@ const Aside = ({ open, setOpen }) => {
                 </div>
               )}
             </div>
+            <div className='flex gap-3'>
+              <img src={plus} alt="" className='scale-[1.25]' />
+              <p className='text-sm text-white font-light'>Add your favourite genres (max 5)</p>
+            </div>
+            <div className="flex  mt-4">
+              {genresLabel.data && (
+                <ul className="flex gap-3 p-2 whitespace-nowrap overflow-x-auto ">
+                  {genresLabel.data.genres.map((genre) => {
+                    return (
+                      <div
+                        className="bg-[#262629] px-4 py-2 rounded-3xl cursor-pointer font-light"
+                        onClick={() => handleGenreClick(genre)}
+                        key={genre.id}
+                      >
+                        <p>{genre.name}</p>
+                      </div>
+                    );
+                  })}
+                </ul>
+              )}
+            </div>
           </div>
         </>
-
-        :
+          :
         <>
           <div className='my-auto absolute right-[-0.9rem] top-24'>
             <img src={invertedPlay} alt="" className='scale-[1.25]' onClick={() => setOpen(!open)} />
