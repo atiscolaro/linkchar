@@ -110,6 +110,22 @@ const getMovieCountry = async (movieId) => {
   }
 };
 
+const getMoviesListGenres = async () => {
+  try {
+    const response = await axios.get(`${API_URL}/genre/movie/list`, {
+      params:{
+        api_key: API_KEY,
+        language: 'en-US',
+      }
+    })
+    // const genresList = response.data.genres
+    return response;
+  } catch (error) {
+        console.error(error);
+    throw error;
+  }
+}
+
 const getSmallImage = (path) => {
   return IMAGE_PATH + "w500" + path;
 };
@@ -125,6 +141,7 @@ export {
   getTopRated,
   getMovieGenres,
   getMovieCountry,
+  getMoviesListGenres,
   getSmallImage,
   getImageOriginal,
 };

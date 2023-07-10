@@ -44,7 +44,7 @@ const Search = () => {
           onChange={onInputChange}
           className="text-black rounded-lg p-2"
         />
-        <img src={search} alt="" />
+        <img src={search} alt=""  className="scale-125 ml-3"/>
       </form>
     </>
   )

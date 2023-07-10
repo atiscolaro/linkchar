@@ -37,8 +37,7 @@ const CardNewTrailer = ({ id, title, imagePath, imagePath2 }) => {
         className={`flex items-end bg-slate-700 container mx-auto w-[80%] h-[11rem] rounded-[2rem] relative`}
         style={{ backgroundImage: `url(${image})`, backgroundSize: 'cover', backgroundClip: 'content-box', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}
       >
-        <div className='relative bg-white bg-opacity-10 backdrop-filter backdrop-blur-[0.2rem] h-[35%] w-full rounded-b-[2rem] rounded-t-[1rem] p-4 '>
-
+        <div className='relative bg-white bg-opacity-10 backdrop-filter backdrop-blur-[0.2rem]  sm:h-[45%] lg:h-[40%] md:h-[40%] overflow-hidden w-full rounded-b-[2rem] rounded-t-[1rem] p-4 '>
           <div className='flex justify-items-center justify-between gap-3'>
             <div className='my-auto'>
               <img src={play} alt="" />

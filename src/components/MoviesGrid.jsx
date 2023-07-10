@@ -30,7 +30,7 @@ const MoviesGrid = () => {
             </div>
          ) :
          <div className="flex ml-10 mt-9">
-            <h2 className="text-lg">No se encontro ninguna película</h2>
+            <h2 className="text-lg">Sorry, we didn't find any movies</h2>
          </div>
          }
       </>

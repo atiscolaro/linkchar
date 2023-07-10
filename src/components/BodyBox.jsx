@@ -59,7 +59,7 @@ const BodyBox = () => {
               </p>
             </div>
           </div>
-          <div className='flex gap-10'>
+          <div className='flex gap-10 flex-col md:flex-row'>
             {continueWatchingMovie &&
               continueWatchingMovie.slice(6, 8).map((movie) => {
                 return (
@@ -87,7 +87,7 @@ const BodyBox = () => {
               </p>
             </div>
           </div>
-          <div className='flex gap-10'>
+          <div className='flex gap-10  flex-col md:flex-row'>
             {popularMovies &&
               popularMovies.slice(6, 9).map((movie) => {
                 return (
