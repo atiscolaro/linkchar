@@ -89,17 +89,13 @@ const Aside = ({ open, setOpen }) => {
               </div>
             </div>
           </div>
-          <div className='bg-[#1E1E21] w-full h-[45%] pt-5 mb-3 px-14 font-bold flex flex-col'>
+          <div className='bg-[#1E1E21] w-full h-[45%] pt-5 mb-6 pb-9 px-14 font-bold flex flex-col gap-6 overflow-y-auto'>
             <div className='text-lg my-2'>
               Favourite genres
             </div>
-            <div className='mt-8'>
+            <div className='mt-4'>
               {selectedGenres.length > 0 && (
                 <div className="mt-2 flex flex-col">
-                  <div className='mb-3'>
-                    <h2>Selected Genres:</h2>
-
-                  </div>
                   <div className='flex gap-3 flex-wrap'>
                     {selectedGenres.map((genre, index) => (
                       <div
@@ -119,7 +115,7 @@ const Aside = ({ open, setOpen }) => {
               <img src={plus} alt="" className='scale-[1.25]' />
               <p className='text-sm text-white font-light'>Add your favourite genres (max 5)</p>
             </div>
-            <div className="flex  mt-4">
+            <div className="flex ">
               {genresLabel.data && (
                 <ul className="flex gap-3 p-2 whitespace-nowrap overflow-x-auto ">
                   {genresLabel.data.genres.map((genre) => {
