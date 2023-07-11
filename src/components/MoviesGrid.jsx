@@ -4,6 +4,7 @@ import { MoviesDataContext } from "../context/MoviesContextProvider";
 import Modal from "./Modal";
 import { Waypoint } from "react-waypoint";
 import { getMovies } from "../service/api";
+import { ScaleLoader } from "react-spinners";
 
 const MoviesGrid = ({ inputValue }) => {
 
@@ -13,6 +14,7 @@ const MoviesGrid = ({ inputValue }) => {
    const [isModalOpen, setIsModalOpen] = useState(false);
    const [currentPage, setCurrentPage] = useState(1);
    const [totalPages, setTotalPages] = useState(0);
+   const [isLoading, setIsLoading] = useState(false);
 
    useEffect(() => {
       setMoviesArray(movies);
@@ -33,6 +35,7 @@ const MoviesGrid = ({ inputValue }) => {
    };
 
    const fetchNextPage = async () => {
+      setIsLoading(true);
       const nextPage = currentPage + 1;
       try {
          const moviesData = await getMovies(inputValue, nextPage);
@@ -43,7 +46,9 @@ const MoviesGrid = ({ inputValue }) => {
          setCurrentPage(nextPage);
       } catch (error) {
          console.error(error);
-      }
+      } finally {
+         setIsLoading(false);
+       }
    };
 
    return (
@@ -69,7 +74,11 @@ const MoviesGrid = ({ inputValue }) => {
                   ))}
                </div>
             </div >
-         ) : (
+         ): isLoading ? (
+            <div className="flex justify-center items-center h-[calc(100vh-4rem)]">
+              <ScaleLoader color="#ffffff" loading={isLoading} />
+            </div>
+          ) : (
             <div className="flex ml-10 mt-9">
                <h2 className="text-lg">Sorry, we didn't find any movies</h2>
             </div>

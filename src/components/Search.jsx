@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { useContext, useState } from "react";
 import search from '../assets/icons/search-icon.svg'
 import { getMovies } from "../service/api";
 import { MoviesDataContext } from "../context/MoviesContextProvider";
