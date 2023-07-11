@@ -35,20 +35,33 @@ const Aside = ({ open, setOpen }) => {
   const handleGenreClick = (genre) => {
     if (selectedGenres.length < 5 && !selectedGenres.includes(genre)) {
       setSelectedGenres((prevSelectedGenres) => [...prevSelectedGenres, genre]);
+      setGenresLabel((prevGenresLabel) => {
+        return {
+          ...prevGenresLabel, data: {
+            ...prevGenresLabel.data, genres: prevGenresLabel.data.genres.filter((g) => g.id !== genre.id),
+          },
+        };
+      });
     }
   };
 
   const handleRemoveGenre = (genre) => {
     setSelectedGenres((prevSelectedGenres) =>
-      prevSelectedGenres.filter((selectedGenre) => selectedGenre !== genre)
-    );
+      prevSelectedGenres.filter((selectedGenre) => selectedGenre !== genre)); setGenresLabel((prevGenresLabel) => {
+        return {
+          ...prevGenresLabel, data: {
+            ...prevGenresLabel.data, genres: [...prevGenresLabel.data.genres, genre].sort((a, b) =>
+              a.name.localeCompare(b.name)),
+          },
+        };
+      });
   };
 
   return (
     <aside className='flex relative  flex-col h-[calc(100vh-4rem)] border-r-solid border-r border-r-gray-700'>
-          <div className='my-auto absolute right-[-0.9rem] top-24'>
-            <img src={invertedPlay} alt="" className='scale-[1.25]' onClick={() => setOpen(!open)} />
-          </div>
+      <div className='my-auto absolute right-[-0.9rem] top-24'>
+        <img src={invertedPlay} alt="" className='scale-[1.25] transform rotate-180 cursor-pointer' onClick={() => setOpen(!open)} />
+      </div>
       {open ?
         <>
           <div className=' h-[55%] overflow-y-auto overflow-x-hidden'>
@@ -137,7 +150,7 @@ const Aside = ({ open, setOpen }) => {
           :
         <>
           <div className='my-auto absolute right-[-0.9rem] top-24'>
-            <img src={invertedPlay} alt="" className='scale-[1.25]' onClick={() => setOpen(!open)} />
+            <img src={invertedPlay} alt="" className='scale-[1.25] cursor-pointer' onClick={() => setOpen(!open)} />
           </div>
         </>
       }
